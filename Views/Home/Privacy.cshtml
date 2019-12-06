@@ -1,0 +1,55 @@
+﻿
+<h1>@ViewData["Title"]</h1>
+@model List<Wedding>
+<div class="row">
+    <div class="col-10">
+        <h1>Welcome @ViewBag.logUserr.FirstName to the Wedding Planer </h1>
+    </div>
+    <div class="col-2">
+        <a href="Logout/"><button>LogOut</button></a>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table">
+        <tr>
+            <td>Wedding</td>
+            <td>Date</td>
+            <td>Guest</td>
+            <td>Action</td>
+        </tr>
+@foreach(var wedding in @Model)
+{
+        <tr>
+            <td><a href="show/@wedding.WeddingId">@wedding.WedderOne @wedding.WedderTwo</a></td>
+            <td>@wedding.date.Year/@wedding.date.Month/@wedding.date.Day</td>
+            <td>@wedding.Assoc_Wedding.Count</td>
+    
+    
+            @{
+                 if(@wedding.UserId == @ViewBag.logUser)
+                {
+                    <td><a href="Delete/@wedding.WeddingId">Delete</a></td>
+                }
+                else 
+                {        
+                    <td>
+                        @if(@wedding.Assoc_Wedding.Any(w=>w.UserId == @ViewBag.logUser))
+                        {
+                            <a href="RemoveUserFromWedding/@wedding.WeddingId">Un-RSVP</a>   
+                        }else{
+                            <a href="AddUserToWedding/@wedding.WeddingId">RSVP</a>
+                        }                      
+                    </td>                                  
+                }
+            }
+        </tr>
+
+}
+
+
+    </table>
+    <button type="button" calss="btn btn-primary"><a href="Success/NewWedding"> New Wedding </a></button>
+    
+
+</div>

@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@using Wedding_Planner.Models
+
+@model User
+
+<div class="text-center">
+    <h1 class="display-4">Register to this Cool Site!</h1>
+    <button><a href="/">Register</a> </button>
+<form asp-action="LoginProcess" asp-controller="Home" method="post">     
+
+    <section>
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email">Email</label>
+        <input type="text" name="Email">
+    </section>   
+
+    <section>
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password">Password</label>
+        <input type="password" name="Password">
+    </section>   
+    
+    <input type="submit" value="Login!">
+    </form>
+</div>

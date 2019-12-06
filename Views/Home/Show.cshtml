@@ -1,0 +1,19 @@
+
+
+@model Wedding 
+
+
+
+<h1>@Model.WedderOne @Model.WedderTwo</h1>
+<h3>@Model.date</h3>
+<h3>@Model.Address</h3>
+
+<h1>List Of Gusts:</h1>
+@foreach(Association a in @Model.Assoc_Wedding)
+{
+    <li>@a.User.FirstName @a.User.LastName</li>
+}
+
+
+
+

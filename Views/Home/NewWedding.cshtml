@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Home Page"; 
+}
+@model Wedding
+
+<div class="text-center">
+    <div class="row">
+        <div class="col-md">
+            <h1 class="display-4">Plan Your Wedding!</h1>
+        </div>
+        <div class="col-md">
+            <button><a href="/Success">Dashboard</a> </button>
+            <a href="/Logout"><button>LogOut</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md">            
+            <form asp-action="NewWedding" asp-controller="Home" method="post">     
+
+                <section>
+                    <span asp-validation-for="WedderOne"></span>
+                    <label asp-for="WedderOne">Wedder One</label>
+                    <input type="text" name="WedderOne">
+                </section>    
+
+                <section>
+                    <span asp-validation-for="WedderTwo"></span>
+                    <label asp-for="WedderTwo">Wedder Two</label>
+                    <input type="text" name="WedderTwo">
+                </section>   
+
+                <section>
+                    <span asp-validation-for="date"></span>
+                    <label asp-for="date">Date</label>
+                    <input type="date" name="date">
+                </section>   
+
+                <section>
+                    <span asp-validation-for="Address"></span>
+                    <label asp-for="Address">Address</label>
+                    <input type="text" name="Address">
+                </section>   
+                
+                <input type="submit" value="Create!">
+            </form>
+        </div>
+
+        <div class="col-md">
+        </div>
+    </div>
+</div>

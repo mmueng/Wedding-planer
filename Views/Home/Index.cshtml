@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model ViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Register to this Cool Site!</h1>
+  
+    <div class="row">
+        <div class="col-md">
+            
+<form asp-action="Register" asp-controller="Home" method="post">     
+
+    <section>
+        <span asp-validation-for="NewUser.FirstName"></span>
+        <label asp-for="NewUser.FirstName">First Nmae</label>
+        <input type="text" name="NewUser.FirstName">
+    </section>    
+
+    <section>
+        <span asp-validation-for="NewUser.LastName"></span>
+        <label asp-for="NewUser.LastName">Last Nmae</label>
+        <input type="text" name="NewUser.LastName">
+    </section>   
+
+    <section>
+        <span asp-validation-for="NewUser.Email"></span>
+        <label asp-for="NewUser.Email">Email</label>
+        <input type="text" name="NewUser.Email">
+    </section>   
+
+    <section>
+        <span asp-validation-for="NewUser.Password"></span>
+        <label asp-for="NewUser.Password">Password</label>
+        <input type="password" name="NewUser.Password">
+    </section>   
+    
+    <section>
+        <span asp-validation-for="NewUser.Confirm"></span>
+        <label asp-for="NewUser.Confirm">Confirm Password</label>
+        <input type="password" name="NewUser.Confirm">
+    </section>   
+    
+    <input type="submit" value="Sign Up!">
+    </form>
+        </div>
+
+        <div class="col-md">
+            <form asp-action="LoginProcess" asp-controller="Home" method="post">     
+
+    <section>
+        <span asp-validation-for="LoginUser.Email"></span>
+        <label asp-for="LoginUser.Email">Email</label>
+        <input type="text" name="LoginUser.Email">
+    </section>   
+
+    <section>
+        <span asp-validation-for="LoginUser.Password"></span>
+        <label asp-for="LoginUser.Password">Password</label>
+        <input type="password" name="LoginUser.Password">
+    </section>   
+    
+    <input type="submit" value="Login!">
+    </form>
+        </div>
+    </div>
+</div>
